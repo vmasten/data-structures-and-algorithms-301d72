@@ -22,11 +22,10 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  const result = arr;
-  result.forEach(animal => callback(animal));
-  return result;
-
-}
+  const result = [];
+  arr.forEach(animal => {
+    result.push(callback(animal));
+  });
   return result;
 };
 
@@ -39,7 +38,7 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => a > b ? 1 : -1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,7 +50,7 @@ HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => a < b ? -1 : 1)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,7 +76,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => a < b ? -1 : 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -116,7 +115,7 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-
+  return arr.sort((a, b) => a.length < b.length ? -1 : 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
