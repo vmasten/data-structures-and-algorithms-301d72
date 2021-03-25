@@ -64,9 +64,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  const re = /[A-Z]*/;
-  const result = []
-  result.push(str.match(re));
+  const re = /\b[A-Z][a-z]+/g;
+  const result = str.match(re) || [];
   return result;
 };
 
@@ -77,8 +76,15 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
-};
+  const results = [];
+  const re = /^[A-J]/;
+  for (const city of arr) {
+    if (re.test(city) === true) {
+      results.push(city);
+    }
+  }
+  return results;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
