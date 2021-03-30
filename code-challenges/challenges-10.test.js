@@ -100,7 +100,7 @@ const divisibleByFiveTwoToThePower = (input) => {
       }
     });
     result.push(testResult);
-    console.log(result);
+    // console.log(result);
   }
   return result;
 };
@@ -167,13 +167,11 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  let result = '';
-  result += starWarsData.map(data => {
-    if (data.gender === 'male' || data.gender === 'female') {
-      return data.name;
-    }
-  });
-  return result;
+  return data
+    .filter((item) => item.gender === 'female' || item.gender === 'male')
+    .map(character => character.name)
+    .join(' and ');
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -183,7 +181,20 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  let result = data.reduce((accum, char) => {
+    if (accum === 0) {
+      accum = char.height;
+    }
+    // console.log({accum});
+    // console.log(char.height);
+    if (char.height < accum) {
+      accum = char.height;
+      console.log('here');
+      // console.log(accum);
+    }
+    return accum;
+  },0);
+  // console.log(result);
 };
 
 /* ------------------------------------------------------------------------------------------------
