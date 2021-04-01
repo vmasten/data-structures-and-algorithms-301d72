@@ -97,7 +97,8 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  const re = /[^\d]/
+  return Number.isInteger(phoneNumber.replace(re, ''));
 };
 
 /* ------------------------------------------------------------------------------------------------
